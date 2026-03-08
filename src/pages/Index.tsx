@@ -1,7 +1,7 @@
 import ParticleBackground from '@/components/ParticleBackground';
 import SmoothCursor from '@/components/SmoothCursor';
 import FloatingMusicIcons from '@/components/FloatingMusicIcons';
-import MusicPlayer from '@/components/MusicPlayer';
+
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
