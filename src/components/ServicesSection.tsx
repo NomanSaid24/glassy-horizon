@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ElectricBorder from './ElectricBorder';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,24 +11,28 @@ const services = [
     title: 'Demo Review',
     desc: 'Submit your unreleased music for professional feedback. Our A&R team listens to every submission and provides actionable insights.',
     cta: 'Apply Now',
+    color: '#a855f7',
   },
   {
     icon: '🚀',
     title: 'Bouut Launch Program',
     desc: 'Pre-release Instagram hype campaigns designed to build anticipation. We create buzz before your track drops.',
     cta: 'Learn More',
+    color: '#d946ef',
   },
   {
     icon: '🎶',
     title: 'Playlist Submission',
     desc: 'Get placed on our weekly curated playlists reaching thousands of active listeners. Genre-specific curation for maximum impact.',
     cta: 'Submit Track',
+    color: '#06b6d4',
   },
   {
     icon: '📢',
     title: 'Promotion Campaign',
     desc: 'Full-scale paid promotion across Instagram, TikTok, and streaming platforms. Targeted campaigns for the right audience.',
     cta: 'Get Started',
+    color: '#a855f7',
   },
 ];
 
@@ -61,19 +66,21 @@ export default function ServicesSection() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {services.map((s, i) => (
-            <div key={i} className="service-card glass-card rounded-2xl p-8 group cursor-pointer">
-              <div className="text-5xl mb-6">{s.icon}</div>
-              <h3 className="font-display font-bold text-2xl mb-3 text-foreground group-hover:text-gradient-purple transition-all">
-                {s.title}
-              </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">{s.desc}</p>
-              <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
-                {s.cta}
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-            </div>
+            <ElectricBorder key={i} color={s.color} speed={0.8} chaos={0.1} borderRadius={16}>
+              <div className="service-card glass-card rounded-2xl p-8 group cursor-pointer border-transparent">
+                <div className="text-5xl mb-6">{s.icon}</div>
+                <h3 className="font-display font-bold text-2xl mb-3 text-foreground group-hover:text-gradient-purple transition-all">
+                  {s.title}
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">{s.desc}</p>
+                <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
+                  {s.cta}
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
+            </ElectricBorder>
           ))}
         </div>
       </div>

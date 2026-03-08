@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import concertImg from '@/assets/concert-crowd.jpg';
+import ElectricBorder from './ElectricBorder';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,20 +57,21 @@ export default function TestimonialsSection() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <div key={i} className="testimonial-card glass-card rounded-2xl p-8">
-              {/* Quote mark */}
-              <span className="text-4xl text-primary/30 font-serif leading-none">"</span>
-              <p className="text-foreground/90 leading-relaxed mb-6 italic">{t.quote}</p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-sm">
-                  {t.name[0]}
-                </div>
-                <div>
-                  <p className="font-display font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-muted-foreground text-xs">{t.role}</p>
+            <ElectricBorder key={i} color={['#a855f7', '#d946ef', '#06b6d4'][i]} speed={0.6} chaos={0.08} borderRadius={16}>
+              <div className="testimonial-card glass-card rounded-2xl p-8 border-transparent">
+                <span className="text-4xl text-primary/30 font-serif leading-none">"</span>
+                <p className="text-foreground/90 leading-relaxed mb-6 italic">{t.quote}</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-sm">
+                    {t.name[0]}
+                  </div>
+                  <div>
+                    <p className="font-display font-semibold text-foreground text-sm">{t.name}</p>
+                    <p className="text-muted-foreground text-xs">{t.role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ElectricBorder>
           ))}
         </div>
       </div>
