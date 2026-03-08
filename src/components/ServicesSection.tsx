@@ -42,9 +42,14 @@ export default function ServicesSection() {
   useEffect(() => {
     const cards = sectionRef.current?.querySelectorAll('.service-card');
     if (cards) {
-      gsap.from(cards, {
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' },
-        y: 80, opacity: 0, stagger: 0.12, duration: 0.8, ease: 'power3.out',
+      gsap.set(cards, { y: 80, opacity: 0 });
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top 80%',
+        onEnter: () => {
+          gsap.to(cards, { y: 0, opacity: 1, stagger: 0.12, duration: 0.8, ease: 'power3.out' });
+        },
+        once: true,
       });
     }
   }, []);
