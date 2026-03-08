@@ -136,3 +136,7 @@
   0% { --gradient-angle: 0deg; }
   100% { --gradient-angle: 360deg; }
 }
+
+.gradient-border-wrapper {
+  animation: gradient-rotate 3s linear infinite;
+}
