@@ -33,12 +33,7 @@ export default function Navbar() {
         }`}
       >
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <img src={logo} alt="Bouut" className="h-8 w-8" />
-          <span className="font-display font-bold text-lg text-foreground">
-            Bou<span className="text-gradient-purple">ut</span>
-          </span>
-        </div>
+        <img src={logo} alt="Bouut" className="h-8 w-8" />
 
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-6">
