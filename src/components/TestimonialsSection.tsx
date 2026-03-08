@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import concertImg from '@/assets/concert-crowd.jpg';
+import ElectricBorder from './ElectricBorder';
 
 gsap.registerPlugin(ScrollTrigger);
 
