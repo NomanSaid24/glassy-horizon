@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ElectricBorder from './ElectricBorder';
+import GradientBorder from './GradientBorder';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,28 +11,28 @@ const services = [
     title: 'Demo Review',
     desc: 'Submit your unreleased music for professional feedback. Our A&R team listens to every submission and provides actionable insights.',
     cta: 'Apply Now',
-    color: '#a855f7',
+    colors: ['#a855f7', '#ec4899', '#06b6d4', '#a855f7'],
   },
   {
     icon: '🚀',
     title: 'Bouut Launch Program',
     desc: 'Pre-release Instagram hype campaigns designed to build anticipation. We create buzz before your track drops.',
+    colors: ['#d946ef', '#f97316', '#a855f7', '#d946ef'],
     cta: 'Learn More',
-    color: '#d946ef',
   },
   {
     icon: '🎶',
     title: 'Playlist Submission',
     desc: 'Get placed on our weekly curated playlists reaching thousands of active listeners. Genre-specific curation for maximum impact.',
+    colors: ['#06b6d4', '#a855f7', '#22c55e', '#06b6d4'],
     cta: 'Submit Track',
-    color: '#06b6d4',
   },
   {
     icon: '📢',
     title: 'Promotion Campaign',
     desc: 'Full-scale paid promotion across Instagram, TikTok, and streaming platforms. Targeted campaigns for the right audience.',
+    colors: ['#ec4899', '#a855f7', '#06b6d4', '#ec4899'],
     cta: 'Get Started',
-    color: '#a855f7',
   },
 ];
 
@@ -66,8 +66,8 @@ export default function ServicesSection() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {services.map((s, i) => (
-            <ElectricBorder key={i} color={s.color} speed={0.8} chaos={0.1} borderRadius={16}>
-              <div className="service-card glass-card rounded-2xl p-8 group cursor-pointer border-transparent">
+            <GradientBorder key={i} colors={s.colors} borderRadius={16}>
+              <div className="service-card glass-card rounded-[14px] p-8 group cursor-pointer border-transparent">
                 <div className="text-5xl mb-6">{s.icon}</div>
                 <h3 className="font-display font-bold text-2xl mb-3 text-foreground group-hover:text-gradient-purple transition-all">
                   {s.title}
@@ -80,7 +80,7 @@ export default function ServicesSection() {
                   </svg>
                 </span>
               </div>
-            </ElectricBorder>
+            </GradientBorder>
           ))}
         </div>
       </div>

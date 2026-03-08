@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import concertImg from '@/assets/concert-crowd.jpg';
-import ElectricBorder from './ElectricBorder';
+import GradientBorder from './GradientBorder';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,16 +11,19 @@ const testimonials = [
     quote: 'Bouut Music helped me get my first 10K streams in a week. Their playlist placement is legit and the team genuinely cares about independent artists.',
     name: 'Jaylen Carter',
     role: 'R&B Artist',
+    colors: ['#a855f7', '#ec4899', '#06b6d4', '#a855f7'],
   },
   {
     quote: 'The Launch Program was a game-changer. My pre-release campaign built so much hype that my track charted on day one. Highly recommend!',
     name: 'Luna Vex',
     role: 'Electronic Producer',
+    colors: ['#d946ef', '#f97316', '#a855f7', '#d946ef'],
   },
   {
     quote: 'Professional, responsive, and results-driven. Bouut Music is the real deal for any emerging artist looking to break through the noise.',
     name: 'Marcus Dean',
     role: 'Hip-Hop Artist',
+    colors: ['#06b6d4', '#a855f7', '#22c55e', '#06b6d4'],
   },
 ];
 
@@ -39,7 +42,6 @@ export default function TestimonialsSection() {
 
   return (
     <section ref={sectionRef} className="section-padding relative overflow-hidden">
-      {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img src={concertImg} alt="" className="w-full h-full object-cover opacity-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
@@ -57,8 +59,8 @@ export default function TestimonialsSection() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <ElectricBorder key={i} color={['#a855f7', '#d946ef', '#06b6d4'][i]} speed={0.6} chaos={0.08} borderRadius={16}>
-              <div className="testimonial-card glass-card rounded-2xl p-8 border-transparent">
+            <GradientBorder key={i} colors={t.colors} borderRadius={16}>
+              <div className="testimonial-card glass-card rounded-[14px] p-8 border-transparent">
                 <span className="text-4xl text-primary/30 font-serif leading-none">"</span>
                 <p className="text-foreground/90 leading-relaxed mb-6 italic">{t.quote}</p>
                 <div className="flex items-center gap-3">
@@ -71,7 +73,7 @@ export default function TestimonialsSection() {
                   </div>
                 </div>
               </div>
-            </ElectricBorder>
+            </GradientBorder>
           ))}
         </div>
       </div>
