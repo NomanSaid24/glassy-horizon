@@ -18,9 +18,14 @@ export default function FAQSection() {
   useEffect(() => {
     const items = sectionRef.current?.querySelectorAll('.faq-item');
     if (items) {
-      gsap.from(items, {
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' },
-        y: 40, opacity: 0, stagger: 0.1, duration: 0.6, ease: 'power3.out',
+      gsap.set(items, { y: 40, opacity: 0 });
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top 80%',
+        onEnter: () => {
+          gsap.to(items, { y: 0, opacity: 1, stagger: 0.1, duration: 0.6, ease: 'power3.out' });
+        },
+        once: true,
       });
     }
   }, []);
