@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ElectricBorder from './ElectricBorder';
+import GradientBorder from './GradientBorder';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,11 +21,10 @@ export default function CTASection() {
   return (
     <section id="cta" ref={sectionRef} className="section-padding relative">
       <div className="max-w-4xl mx-auto text-center relative">
-        {/* Glow effects */}
         <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-primary/10 blur-[120px]" />
         
-        <ElectricBorder color="#a855f7" speed={1.2} chaos={0.15} borderRadius={24}>
-          <div className="relative z-10 glass-strong rounded-3xl p-12 md:p-16 border-transparent">
+        <GradientBorder borderRadius={24} borderWidth={2} colors={['#a855f7', '#ec4899', '#06b6d4', '#f97316', '#a855f7']}>
+          <div className="relative z-10 glass-strong rounded-[22px] p-12 md:p-16 border-transparent">
             <h2 className="cta-reveal font-display font-black text-4xl md:text-6xl mb-6">
               Ready to Get{' '}
               <span className="glow-text">Discovered?</span>
@@ -37,7 +36,7 @@ export default function CTASection() {
               Submit Your Music
             </button>
           </div>
-        </ElectricBorder>
+        </GradientBorder>
       </div>
     </section>
   );
