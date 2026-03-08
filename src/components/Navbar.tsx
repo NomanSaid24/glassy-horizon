@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import { Menu, X } from 'lucide-react';
 import logo from '@/assets/logo.png';
 
 const navItems = ['About', 'Services', 'How It Works', 'FAQ'];
@@ -7,6 +8,7 @@ const navItems = ['About', 'Services', 'How It Works', 'FAQ'];
 export default function Navbar() {
   const navRef = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     gsap.from(navRef.current, { y: -80, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.2 });
@@ -18,6 +20,7 @@ export default function Navbar() {
 
   const scrollTo = (id: string) => {
     document.getElementById(id.toLowerCase().replace(/\s+/g, '-'))?.scrollIntoView({ behavior: 'smooth' });
+    setMobileOpen(false);
   };
 
   return (
@@ -28,14 +31,14 @@ export default function Navbar() {
       }`}
     >
       <div
-        className={`flex items-center gap-8 px-6 py-3 rounded-full border border-border/60 bg-card/80 backdrop-blur-xl shadow-lg shadow-black/20 transition-all duration-500 ${
+        className={`flex items-center gap-4 md:gap-8 px-4 md:px-6 py-3 rounded-full border border-border/60 bg-card/80 backdrop-blur-xl shadow-lg shadow-black/20 transition-all duration-500 ${
           scrolled ? 'scale-[0.97]' : ''
         }`}
       >
         {/* Logo */}
         <img src={logo} alt="Bouut" className="h-8 w-8" />
 
-        {/* Nav Links */}
+        {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <button
@@ -56,7 +59,31 @@ export default function Navbar() {
         >
           Submit Music
         </button>
+
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden text-foreground p-1"
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {mobileOpen && (
+        <div className="absolute top-full mt-2 left-4 right-4 md:hidden glass-strong rounded-2xl p-4 flex flex-col gap-3 animate-in fade-in slide-in-from-top-2 duration-200">
+          {navItems.map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollTo(item)}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2 text-left"
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
