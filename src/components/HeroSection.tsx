@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
 
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-6 pt-20">
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-6 pt-32 md:pt-36">
         <div ref={badgeRef} className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 mb-8">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
           <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
