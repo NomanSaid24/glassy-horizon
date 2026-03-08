@@ -19,7 +19,7 @@ const Index = () => {
       <ParticleBackground />
       <FloatingMusicIcons />
       <SmoothCursor />
-      <MusicPlayer />
+      
       <div className="relative z-10">
         <Navbar />
         <HeroSection />
