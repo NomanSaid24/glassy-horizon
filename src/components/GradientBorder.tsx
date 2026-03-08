@@ -1,4 +1,3 @@
-// GradientBorder - Google-style animated gradient border
 import { type ReactNode } from 'react';
 
 interface GradientBorderProps {
@@ -20,19 +19,18 @@ export default function GradientBorder({
 
   return (
     <div
-      className={`relative ${className}`}
+      className={`relative gradient-border-wrapper ${className}`}
       style={{
         borderRadius,
         padding: borderWidth,
         background: gradient,
-        animation: 'gradient-rotate 4s linear infinite',
       }}
     >
       <div
         className="relative h-full w-full"
         style={{
           borderRadius: borderRadius - borderWidth,
-          background: 'hsl(var(--background))',
+          background: 'hsl(var(--card))',
         }}
       >
         {children}
