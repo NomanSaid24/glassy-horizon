@@ -133,7 +133,7 @@ export default function MusicPlayer() {
       >
         <Music2 size={22} />
         {isPlaying && (
-          <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-green-400 animate-pulse" />
+          <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-primary animate-pulse" />
         )}
       </button>
     );
